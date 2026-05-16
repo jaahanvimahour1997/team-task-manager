@@ -1,7 +1,12 @@
 import axios from "axios";
 
 const rawBaseURL = import.meta.env.VITE_API_URL || "http://localhost:5000";
-const baseURL = rawBaseURL.endsWith("/api") ? rawBaseURL : `${rawBaseURL}/api`;
+
+// Ensure we have a clean base URL without trailing slash, then append /api if missing
+const sanitizedBaseURL = rawBaseURL.replace(/\/+$/, "");
+const baseURL = sanitizedBaseURL.endsWith("/api") ? sanitizedBaseURL : `${sanitizedBaseURL}/api`;
+
+console.log("Connect to API at:", baseURL);
 
 const API = axios.create({
   baseURL,

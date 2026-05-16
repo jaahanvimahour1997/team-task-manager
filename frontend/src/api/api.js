@@ -1,5 +1,9 @@
 import axios from "axios";
 
+console.log(">>> API CONFIG VERSION 3.0 ACTIVE <<<");
+console.log("VITE_API_URL value:", import.meta.env.VITE_API_URL);
+
+
 const rawBaseURL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 // Ensure we have a clean base URL without trailing slash, then append /api if missing
